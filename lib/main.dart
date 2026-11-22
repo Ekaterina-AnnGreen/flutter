@@ -405,6 +405,24 @@ void main() {
 
   // print("avg = ${sum ~/ counter}");
 
+  // Map<String, int> prices = {"Хлеб": 290, "Молоко": 900, "Яйца": 690};
+  // for (var item in prices.entries) {
+  //   print("${item.key} - ${item.value}");
+  // }
+  // print(prices.entries);
+  // print(prices.keys);
+  // print(prices.values);
+
+  // for (var item in prices.keys) {
+  //   print("${item}");
+  // }
+
+  // for (var item in prices.values) {
+  //   print("${item}");
+  // }
+
+  //----------------------------------------------------------------занятие 2026.11.23-----------------------------------------------------------------------------------
+
   Map<String, int> prices = {"Хлеб": 290, "Молоко": 900, "Яйца": 690};
   for (var item in prices.entries) {
     print("${item.key} - ${item.value}");
@@ -419,7 +437,6 @@ void main() {
 
   for (var item in prices.values) {
     print("${item}");
-  }
 
   runApp(const MainApp());
 }

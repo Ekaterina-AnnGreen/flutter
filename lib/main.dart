@@ -423,23 +423,102 @@ void main() {
 
   //----------------------------------------------------------------занятие 2026.11.23-----------------------------------------------------------------------------------
 
-  Map<String, int> prices = {"Хлеб": 290, "Молоко": 900, "Яйца": 690};
-  for (var item in prices.entries) {
-    print("${item.key} - ${item.value}");
-  }
-  print(prices.entries);
-  print(prices.keys);
-  print(prices.values);
+  // Map<String, int> prices = {"Хлеб": 290, "Молоко": 900, "Яйца": 690};
+  // for (var item in prices.entries) {
+  //   print("${item.key} - ${item.value}");
+  // }
+  // print(prices.entries);
+  // print(prices.keys);
+  // print(prices.values);
 
-  for (var item in prices.keys) {
-    print("${item}");
-  }
+  // for (var item in prices.keys) {
+  //   print("${item}");
+  // }
 
-  for (var item in prices.values) {
-    print("${item}");
+  // for (var item in prices.values) {
+  //   print("${item}");
+  // }
+
+  List<int> ages = [5, 7, 30, 41, 60, 72];
+  int total = 0;
+  print("Длина списка ages: ${ages.length}");
+  print("ages[0]: ${ages[0]}");
+
+  // for (var age in ages) {
+  //   total = total + age;
+  // }
+
+  // for (int i = 0; i < ages.length; i++) {
+  //   if (i == 2) continue; // пропускаем 2-й элемент массива
+  //   if (i == 5) break; // прерываем цикл на 5-м элементе массива
+  //   total += ages[i];
+  // }
+
+  // print("Нам всего ${countTotal(ages)} лет");
+
+  // total = countTotal(ages);
+  // print("Нам всего $total лет");
+  // countTotal(ages); //вызов функции
+
+  ages.forEach((age) {
+    //данная функция не будет доступна вне метода forEach, так как она является анонимной функцией
+    if (age < 60) {
+      print(age);
+    } else {
+      print("Старость не в радость");
+    }
+  });
+
+  var elderly = ages.where((age) => age >= 60);
+  print(elderly);
+
+  var old = ages.firstWhere(
+    (age) => age >= 60,
+  ); //возвращает первый элемент, который удовлетворяет условию
+  print(old);
+
+  var isEveryOld = ages.every(
+    (age) => age >= 60,
+  ); //возвращает true, если все элементы удовлетворяют условию
+  print(
+    "isEveryOld: $isEveryOld",
+  ); //возвращает true, если все элементы удовлетворяют условию
+
+  var isAnyOld = ages.any((age) => age >= 60);
+  print(
+    "isAnyOld: $isAnyOld",
+  ); //возвращает true, если хотя бы один элемент удовлетворяет условию
+
+  List<int> populationsMil = [100, 55, 1800, 2500];
+
+  var isEveryMegapolis = populationsMil.every((city) => city >= 1000);
+  print("Все ли мегаполисы - $isEveryMegapolis");
 
   runApp(const MainApp());
 }
+
+int countTotal(List<int> ages) {
+  //будет работать как функция
+  int total = 0;
+  for (int i = 0; i < ages.length; i++) {
+    if (i == 2) continue; // пропускаем 2-й элемент массива
+    if (i == 5) break; // прерываем цикл на 5-м элементе массива
+    total += ages[i];
+  }
+  return total;
+}
+
+// var countTotal = (List<int> ages) {
+//   //будет работать как переменная
+//   int total = 0;
+//   for (int i = 0; i < ages.length; i++) {
+//     if (i == 2) continue; // пропускаем 2-й элемент массива
+//     if (i == 5) break; // прерываем цикл на 5-м элементе массива
+//     total += ages[i];
+//   }
+//   // return total;
+//   print("Нам всего $total лет");
+// };
 
 // void helloVoid() {
 //   print("Hello, World!");
